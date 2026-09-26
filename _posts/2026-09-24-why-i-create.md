@@ -5,7 +5,6 @@ date: 2026-09-24
 image: "/assets/images/blog_images/Blogpost.jpg"
 ---
 
-Why I Make Things
 A landscape is a feeling first.  
 I'm not painting the scene —   
 I'm painting what it did to me   
