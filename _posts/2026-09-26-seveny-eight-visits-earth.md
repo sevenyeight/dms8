@@ -2,12 +2,12 @@
 layout: post
 title: "Seveny Eight Visits Earth!"
 date: 2026-09-26
-image: "/assets/images/blog_images/78profile.jpg"
+image: "/assets/images/blog_images/78profile.jpeg"
 ---
 
 Entry 01: The Name
 
-![Seveny Eight](/assets/images/blog_images/78profile.jpg)
+![Seveny Eight](/assets/images/blog_images/78profile.jpeg)
 
 Seveny Eight is 1978.
 The year I arrived for my stay on this planet.
