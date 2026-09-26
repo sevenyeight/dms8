@@ -142,13 +142,9 @@
         {% for post in site.posts %}
           <div class="post-card">
             
-            <!-- Automatically extract the first image from the post content -->
-            {% assign thumb = post.content | find_exp: "img", "img contains '<img'" %}
-            {% if post.content contains '<img' %}
-              {% assign extracted_img = post.content | split: 'src="' | second | split: '"' | first %}
-              {% if extracted_img %}
-                <img src="{{ extracted_img }}" alt="{{ post.title }}" class="post-thumb">
-              {% endif %}
+            <!-- If the post has an image defined in its top settings, show it -->
+            {% if post.image %}
+              <img src="{{ post.image }}" alt="{{ post.title }}" class="post-thumb">
             {% endif %}
 
             <div class="post-content">
