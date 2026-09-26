@@ -11,30 +11,32 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #000000; /* Pure black background */
+            background-color: #000000;
             color: #ffffff;
             line-height: 1.6;
         }
-        /* Top Banner Style */
+        /* Top Banner Image */
+        .banner-image-container {
+            text-align: center;
+            padding-top: 1.5rem;
+            background-color: #111111;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        .banner-image {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            border-radius: 6px;
+            display: block;
+            margin: 0 auto;
+        }
+        /* Top Banner Header */
         .site-banner {
             background-color: #111111;
             color: #fff;
             text-align: center;
             padding: 2.5rem 1rem 1.5rem 1rem;
-        }
-        /* Banner Image Style */
-        .banner-image-container {
-            text-align: center;
-            padding-top: 1.5rem;
-            background-color: #111111;
-        }
-        .banner-image {
-            width: 100%;
-            max-width: auto; /* Adjust size as needed */
-            height: 270px
-            border-radius: 2px;
-            display: block;
-            margin: 0 auto;
         }
         .site-banner h1 {
             margin: 0.5rem 0 0 0;
@@ -65,7 +67,7 @@
             margin: 0 auto;
             padding: 0 20px 40px 20px;
         }
-        /* Post Card Style (Kept unchanged as requested) */
+        /* Post Card Style with Thumbnail Layout */
         .post-card {
             background: #fff;
             color: #222;
@@ -73,34 +75,54 @@
             border-radius: 8px;
             margin-bottom: 1.5rem;
             box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
             transition: transform 0.2s ease;
         }
         .post-card:hover {
             transform: translateY(-2px);
         }
-        .post-card h2 {
-            margin-top: 0;
-            font-size: 1.5rem;
+        /* Thumbnail Image Styling */
+        .post-thumb {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 6px;
+            flex-shrink: 0;
         }
-        .post-card h2 a {
+        .post-content {
+            flex-grow: 1;
+        }
+        .post-content h2 {
+            margin-top: 0;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        .post-content h2 a {
             color: #111;
             text-decoration: none;
         }
-        .post-card h2 a:hover {
+        .post-content h2 a:hover {
             color: #0066cc;
         }
         .post-date {
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: #666;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.3rem;
+        }
+        .post-excerpt {
+            margin: 0;
+            font-size: 0.95rem;
+            color: #444;
         }
     </style>
 </head>
 <body>
 
-    <!-- Top Banner Image (Replace URL with your actual uploaded image path in assets/images/) -->
+    <!-- Top Banner Image -->
     <div class="banner-image-container">
         <img src="/assets/images/blog_images/blogbanner.jpg" alt="Dimension 78" class="banner-image">
     </div>
@@ -110,7 +132,7 @@
         <h1>DIMENSION 78 JOURNAL</h1>
     </div>
 
-    <!-- Navigation (Only Blog Home) -->
+    <!-- Navigation -->
     <nav>
         <a href="/blog">Blog Home</a>
     </nav>
@@ -119,9 +141,22 @@
     <div class="container">
         {% for post in site.posts %}
           <div class="post-card">
-            <div class="post-date">{{ post.date | date: "%B %d, %Y" }}</div>
-            <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-            <p>{{ post.excerpt }}</p>
+            
+            <!-- Automatically extract the first image from the post content -->
+            {% assign thumb = post.content | find_exp: "img", "img contains '<img'" %}
+            {% if post.content contains '<img' %}
+              {% assign extracted_img = post.content | split: 'src="' | second | split: '"' | first %}
+              {% if extracted_img %}
+                <img src="{{ extracted_img }}" alt="{{ post.title }}" class="post-thumb">
+              {% endif %}
+            {% endif %}
+
+            <div class="post-content">
+              <div class="post-date">{{ post.date | date: "%B %d, %Y" }}</div>
+              <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+              <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
+            </div>
+
           </div>
         {% endfor %}
     </div>
