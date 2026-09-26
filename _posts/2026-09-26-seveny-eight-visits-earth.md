@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Seveny Eight Visits Earth!"
-date: 2026-09-26
+date: 1978-01-09
 image: "/assets/images/blog_images/78profile.jpeg"
 ---
 
@@ -33,13 +33,11 @@ A little slang.
 
 A little mine.  
 
-
 It gave me distance from my birth name and room to become something else — something that likes to make weird looking creatures, robots as well as a love for nature, and can't stop thinking about what happens when nature and technology clash.  
 
 Not peacefully.  
 
 Not easily.  
-
 
 They exist at the edge of each other, always at the precipice.  
 
@@ -53,10 +51,10 @@ The tension is the point.
 
 Seveny Eight isn't an artist.  
 
-Artists carry a weight of classification — style, medium, school of thought.  
+Artists carry a weight of classification  
+— style, medium, school of thought.  
 
 Seveny Eight is a creator.  
-
 The medium is whatever the creation calls for.  
 
 The objective is the thing being made.  
