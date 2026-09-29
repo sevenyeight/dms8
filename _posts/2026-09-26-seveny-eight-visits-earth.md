@@ -33,7 +33,10 @@ A little slang.
 
 A little mine.  
 
-It gave me distance from my birth name and room to become something else — something that likes to make weird looking creatures, robots as well as a love for nature, and can't stop thinking about what happens when nature and technology clash.  
+It gave me distance and room to become something else — 
+something that likes to make weird looking creatures, and robots
+as well as a love for nature, 
+and can't stop thinking about what happens when nature and technology clash.  
 
 Not peacefully.  
 
